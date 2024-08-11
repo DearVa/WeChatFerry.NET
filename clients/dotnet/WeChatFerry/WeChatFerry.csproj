@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.27.3" />
+      <PackageReference Include="Grpc.Net.Client" Version="2.65.0" />
+      <PackageReference Include="Grpc.Tools" Version="2.65.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="SharpNng" Version="0.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="proto\wcf.proto" GrpcServices="Client" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="runtimes\win-x64\native\wcf_sdk.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="spy.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+</Project>
